@@ -1,10 +1,23 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
+import {BrowserRouter, Route, Routes} from "react-router";
+import "bootstrap/dist/css/bootstrap.css"
+import "bootstrap/dist/js/bootstrap.js"
+import Home from "./Home.jsx";
+import Reserve from "./Reserve.jsx";
+import Template from "./Template.jsx";
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+    <StrictMode>
+        <BrowserRouter>
+            {/*<App />*/}
+            <Routes>
+                <Route element={<Template />}>
+                    <Route path="home" element={<Home />} />
+                    <Route path="reserve" element={<Reserve />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    </StrictMode>,
 )
