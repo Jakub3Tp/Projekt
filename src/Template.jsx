@@ -4,7 +4,7 @@ export default function Template() {
     return <>
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">Rezerwacja</a>
+                <a className="navbar-brand" href="#">Serwis rezerwacji spotkań</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -24,6 +24,13 @@ export default function Template() {
                                 to="reserve"
                                 className={({ isActive }) => isActive ? "nav-link active fw-bold" : "nav-link"}>
                                 Rezerwacje
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink
+                                to="reservation"
+                                className={({ isActive }) => isActive ? "nav-link active fw-bold" : "nav-link"}>
+                                Twoje rezerwacje
                             </NavLink>
                         </li>
                     </ul>

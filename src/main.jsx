@@ -7,6 +7,7 @@ import "bootstrap/dist/js/bootstrap.js"
 import Home from "./Home.jsx";
 import Reserve from "./Reserve.jsx";
 import Template from "./Template.jsx";
+import Reservation from "./Reservation.jsx";
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
@@ -16,6 +17,7 @@ createRoot(document.getElementById('root')).render(
                 <Route element={<Template />}>
                     <Route path="home" element={<Home />} />
                     <Route path="reserve" element={<Reserve />} />
+                    <Route path="reservation" element={<Reservation />} />
                 </Route>
             </Routes>
         </BrowserRouter>
