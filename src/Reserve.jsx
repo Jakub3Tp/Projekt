@@ -1,8 +1,9 @@
 import pjedlikowski from "./assets/pjedlikowski.jpg";
 import adam from "./assets/adam.jpg";
-
+import { useNavigate } from "react-router";
 
 export default function Reserve() {
+    const navigate = useNavigate();
     return <>
         <div className="container d-flex justify-content-center text-center">
             <h1>Zarezerwuj Spotkanie</h1>
@@ -18,7 +19,7 @@ export default function Reserve() {
                             2021
                             r.
                         </p>
-                        <a href="#" className="btn btn-primary">Zarezerwój korepetycje</a>
+                        <button className="btn btn-primary" onClick={() => navigate(`/tutor/`)}>Szczegóły</button>
                     </div>
                 </div>
 
@@ -30,7 +31,7 @@ export default function Reserve() {
                             Mam na imię Adam. Jestem nauczycielem programowania i przedmiotów informatycznych. Realizuje
                             również wszelkie usługi związane z tą dziedziną.
                         </p>
-                        <a href="#" className="btn btn-primary">Zarezerwój korepetycje</a>
+                        <a href="Tutor.jsx" className="btn btn-primary">Szczegóły</a>
                     </div>
                 </div>
             </div>

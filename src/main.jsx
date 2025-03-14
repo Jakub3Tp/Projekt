@@ -8,6 +8,7 @@ import Home from "./Home.jsx";
 import Reserve from "./Reserve.jsx";
 import Template from "./Template.jsx";
 import Reservation from "./Reservation.jsx";
+import Tutor from "./Tutor.jsx";
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')).render(
                     <Route path="home" element={<Home />} />
                     <Route path="reserve" element={<Reserve />} />
                     <Route path="reservation" element={<Reservation />} />
+                    <Route path="tutor" element={<Tutor />} />
                 </Route>
             </Routes>
         </BrowserRouter>
