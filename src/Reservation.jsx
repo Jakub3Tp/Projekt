@@ -5,5 +5,6 @@ export default function Home() {
             <h1>Grafik twoich zarejesrowanych spotkań</h1>
         </div>
         <p>Tu jesze nic nie ma :P. (ALE BĘDZIE!)</p>
+        <p>jak klikniesz zarezerwój to tu będzie wyświetlać się informacje o aktualnie zarezewowanych karepetycjach (coming soon)</p>
     </>
 }
