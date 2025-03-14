@@ -19,7 +19,7 @@ export default function Reserve() {
                             2021
                             r.
                         </p>
-                        <button className="btn btn-primary" onClick={() => navigate(`/tutor/`)}>Szczegóły</button>
+                        <button className="btn btn-primary" onClick={() => navigate(`/tutor`)}>Szczegóły</button>
                     </div>
                 </div>
 
