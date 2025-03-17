@@ -15,22 +15,38 @@ export default function Template() {
                         <li className="nav-item">
                             <NavLink
                                 to="home"
-                                className={({ isActive }) => isActive ? "nav-link active fw-bold" : "nav-link"}>
+                                className={({isActive}) => isActive ? "nav-link active fw-bold" : "nav-link"}>
                                 Strona Główna
                             </NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink
                                 to="reserve"
-                                className={({ isActive }) => isActive ? "nav-link active fw-bold" : "nav-link"}>
+                                className={({isActive}) => isActive ? "nav-link active fw-bold" : "nav-link"}>
                                 Rezerwacje
                             </NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink
                                 to="reservation"
-                                className={({ isActive }) => isActive ? "nav-link active fw-bold" : "nav-link"}>
+                                className={({isActive}) => isActive ? "nav-link active fw-bold" : "nav-link"}>
                                 Twoje rezerwacje
+                            </NavLink>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li className="nav-item">
+                            <NavLink to="login"
+                                     className={({isActive}) => isActive ? "nav-link active fw-bold" : "nav-link"}>
+                                Logowanie
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink to="Registration"
+                                     className={({isActive}) => isActive ? "nav-link active fw-bold" : "nav-link"}>
+                                Rejestracja
                             </NavLink>
                         </li>
                     </ul>
@@ -38,7 +54,7 @@ export default function Template() {
             </div>
         </nav>
         <div className="container-fluid">
-            <Outlet />
+            <Outlet/>
         </div>
     </>
 }
