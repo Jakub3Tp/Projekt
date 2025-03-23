@@ -1,6 +1,5 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
 import {BrowserRouter, Route, Routes} from "react-router";
 import "bootstrap/dist/css/bootstrap.css"
 import "bootstrap/dist/js/bootstrap.js"
@@ -22,7 +21,7 @@ createRoot(document.getElementById('root')).render(
                     <Route path="home" element={<Home />} />
                     <Route path="reserve" element={<Reserve />} />
                     <Route path="reservation" element={<Reservation />} />
-                    <Route path="tutor" element={<Tutor />} />
+                    <Route path="tutor/:id" element={<Tutor />} />
                     <Route path="Login" element={<Login />} />
                     <Route path="Registration" element={<Registration />} />
                 </Route>

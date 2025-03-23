@@ -1,21 +1,27 @@
-import pjedlikowski from "./assets/pjedlikowski.jpg";
-import { useNavigate } from "react-router";
+import {useNavigate, useParams} from "react-router";
+import RatingBox from "./RatingBox.jsx";
+import tutorsData from "./assets/tutorsData.json";
 
 export default function Tutor() {
     const navigate = useNavigate();
+    const { id } = useParams();
+
+    const tutor = tutorsData.find(t => t.id === id);
+
+    if (!tutor) {
+        return <h1 className="text-center mt-5">Korepetytor nie znaleziony</h1>;
+    }
+
     return <>
         <div className="container">
-            <h1>Przemysław Pilikowki</h1>
-            <img src={pjedlikowski} alt="Pan P" style={{height:'300px', width:'300px'}} />
+            <RatingBox />
+            <h1>{tutor.name}</h1>
+            <img src={tutor.image} alt="Korepetytor" style={{height:'300px', width:'300px'}} />
             <button type="button" className="btn btn-primary" style={{marginLeft:"50px"}}>Zarezerwój korepetycje</button>
             <div className="container" style={{marginTop:'50px'}}>
                 <p>O mnie: </p>
-                <p>Jestem absolwentem informatyki technicznej na Politechnice Wrocławskiej - ukończyłem ją w 2021 r.
-                    Podczas studiów zacząłem pracę w Katedrze Informatyki Technicznej tej uczelni jako administrator systemu Linux i pracowałem tam przez 5 lat.
-                    Podczas studiów rozpocząłem także pracę jako nauczyciel przedmiotów zawodowych informatycznych w Technikum TEB Edukacja we Wrocławiu, gdzie do dziś pracuję.
-                    Praca ta daje mi wiele satysfakcji i pozwala kształcić nowe pokolenia dobrze przygotowanych techników - a może kiedyś inżynierów - do pracy w tej dziedzinie.
-                    Być może kiedyś zdecyduję się poznać korpo-świat IT :)
-
+                <p>
+                    {tutor.description}
                 </p>
             </div>
 
