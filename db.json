@@ -1,0 +1,17 @@
+{
+  "tutors": [
+      {
+        "id": "1",
+        "name": "Przemysław Pilikowki",
+        "image": "/public/pjedlikowski.jpg",
+        "description": "Jestem absolwentem informatyki technicznej na Politechnice Wrocławskiej - ukończyłem ją w 2021 r. Podczas studiów zacząłem pracę w Katedrze Informatyki Technicznej tej uczelni jako administrator systemu Linux i pracowałem tam przez 5 lat.\n                    Podczas studiów rozpocząłem także pracę jako nauczyciel przedmiotów zawodowych informatycznych w Technikum TEB Edukacja we Wrocławiu, gdzie do dziś pracuję. Praca ta daje mi wiele satysfakcji i pozwala kształcić nowe pokolenia dobrze przygotowanych techników - a może kiedyś inżynierów - do pracy w tej dziedzinie.Być może kiedyś zdecyduję się poznać korpo-świat IT :)"
+      },
+      {
+        "id": "2",
+        "name": "Adam Darczewski",
+        "image": "/public/adam.jpg",
+        "description": "Mam na imię Adam. Jestem nauczycielem programowania i przedmiotów informatycznych. Realizuje\n również wszelkie usługi związane z tą dziedziną. Belfrem jest z powołania, informatykiem z pasji. Przy tablicy (lub raczej rzutniku) czuję się jak ryba w wodzie. Od lat używam sprzętu z logiem nadgryzionego jabłka. W wolnych chwilach kocham gotować i czytać książki. Miłośnik aktywnego spędzania czasu, szczególnie w górach."
+      }
+  ],
+  "reservation": []
+}

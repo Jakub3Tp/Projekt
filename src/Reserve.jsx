@@ -3,6 +3,7 @@ import tutorsCard from "./assets/tutorsCard.json";
 
 export default function Reserve() {
     const navigate = useNavigate();
+
     return <>
         <div className="container d-flex justify-content-center text-center">
             <h1>Zarezerwuj Spotkanie</h1>

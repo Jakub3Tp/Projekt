@@ -1,12 +1,20 @@
 import {useNavigate, useParams} from "react-router";
+import { useEffect, useState } from "react";
 import RatingBox from "./RatingBox.jsx";
-import tutorsData from "./assets/tutorsData.json";
+//import tutorsData from "./assets/tutorsData.json";
 
 export default function Tutor() {
     const navigate = useNavigate();
     const { id } = useParams();
+    const [tutor, setTutor] = useState(null);
 
-    const tutor = tutorsData.find(t => t.id === id);
+    useEffect(() => {
+        fetch(`http://localhost:3000/tutors/${id}`)
+            .then(response => response.json())
+            .then(data => setTutor(data))
+            .catch(error => console.log("Błąd pobierania danych", error));
+    })
+    //const tutor = tutorsData.find(t => t.id === id);
 
     if (!tutor) {
         return <h1 className="text-center mt-5">Korepetytor nie znaleziony</h1>;
