@@ -2,13 +2,13 @@
   {
     "id": "1",
     "name": "Przemysław Pilikowki",
-    "image": "/public/pjedlikowski.jpg",
+    "image": "pjedlikowski.jpg",
     "description": "Jestem absolwentem informatyki technicznej na Politechnice Wrocławskiej - ukończyłem ją w 2021 r."
   },
   {
     "id": "2",
     "name": "Adam Darczewski",
-    "image": "/public/adam.jpg",
+    "image": "adam.jpg",
     "description": "Mam na imię Adam. Jestem nauczycielem programowania i przedmiotów informatycznych. Realizuje\n również wszelkie usługi związane z tą dziedziną."
   }
 ]

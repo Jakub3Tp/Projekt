@@ -18,13 +18,14 @@ export default function Reservation() {
                 ) : (
                     reservations.map(res => (
                         <div key={res.id} className="col-md-4">
-                            <div className="card mb-4">
+                            <div className="card mb-2">
                                 <img src={res.image} className="card-img-top" alt={res.tutor}/>
                                 <div className="card-body text-center">
                                     <h5 className="card-title">{res.tutor}</h5>
                                     <p className="card-text">
-                                        <strong>Data:</strong> {res.date}<br/>
-                                        <strong>Godzina:</strong> {res.time}<br/>
+                                        <strong>Umówiona Data:</strong> {res.date}<br/>
+                                        <strong>Umówiona Godzina:</strong> {res.time}<br/>
+                                        <strong>Korepetycje z:</strong> {res.reason}<br/>
                                     </p>
                                 </div>
                             </div>

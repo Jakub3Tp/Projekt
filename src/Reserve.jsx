@@ -1,8 +1,16 @@
 import { useNavigate } from "react-router";
 import tutorsCard from "./assets/tutorsCard.json";
+import {useEffect} from "react";
 
 export default function Reserve() {
     const navigate = useNavigate();
+
+    //useEffect(() => {
+    //    fetch(`http://localhost:3000/tutorCard/${id}`)
+    //        .then(response => response.json())
+    //        .then(data => setTutor(data))
+    //        .catch(error => console.log("Błąd pobierania danych", error));
+    //})
 
     return <>
         <div className="container d-flex justify-content-center text-center">

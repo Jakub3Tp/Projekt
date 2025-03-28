@@ -8,6 +8,8 @@ export default function Tutor() {
     const { id } = useParams();
     const [tutor, setTutor] = useState(null);
     const [selectedTime, setSelectedTime] = useState("");
+    const [selectedDate, setSelectedDate] = useState("");
+    const [reason, setReason] = useState("");
 
     useEffect(() => {
         fetch(`http://localhost:3000/tutors/${id}`)
@@ -22,9 +24,10 @@ export default function Tutor() {
         const newReservation = {
             id: Date.now(),
             tutor: tutor.name,
-            date: new Date().toISOString().split("T")[0],
+            date: selectedDate,
             time: selectedTime,
-            image: tutor.image
+            image: tutor.image,
+            reason: reason
         };
 
         fetch("http://localhost:3000/reservation", {
@@ -47,21 +50,42 @@ export default function Tutor() {
         <div className="container">
             <RatingBox/>
             <h1>{tutor.name}</h1>
-            <img src={tutor.image} alt="Korepetytor" style={{height: '300px', width: '300px'}}/>
-            <div className="container d-flex align-items-center">
-                <label htmlFor="timePicker">Wybierz godzinę:</label>
-                <input
-                    type="time"
-                    id="timePicker"
-                    value={selectedTime}
-                    onChange={(e) => setSelectedTime(e.target.value)}
-                    className="form-control w-25"
-                />
-                <button type="button" className="btn btn-primary" style={{marginLeft: "50px"}}
-                        onClick={handleReservation}>Zarezerwój korepetycje
-                </button>
-            </div>
 
+            <div className="container d-flex align-items-center">
+                <img src={tutor.image} alt="Korepetytor" style={{height: '300px', width: '300px'}}/>
+                <div className="container align-items-center" style={{paddingBottom: '10px'}}>
+                    <label htmlFor="datePicker">Wybierz dzień na który chcesz się umówić:</label>
+                    <input
+                        type="date"
+                        id="datePicker"
+                        value={selectedDate}
+                        onChange={(e) => setSelectedDate(e.target.value)}
+                        className="form-control w-25"
+                        style={{}}
+                    />
+                    <br/>
+                    <label htmlFor="timePicker">Wybierz godzinę na którą chcesz się umówić:</label>
+                    <input
+                        type="time"
+                        id="timePicker"
+                        value={selectedTime}
+                        onChange={(e) => setSelectedTime(e.target.value)}
+                        className="form-control w-25"
+                    />
+                    <br/>
+                    <label htmlFor="reason">Napisz z czego chciałbyś korepetycje:</label>
+                    <input
+                        type="text"
+                        id="reason"
+                        onChange={(e) => setReason(e.target.value)}
+                        className="form-control w-25"
+                    />
+                    <br/>
+                    <button type="button" className="btn btn-primary" style={{marginLeft: "50px"}}
+                            onClick={handleReservation}>Zarezerwój korepetycje
+                    </button>
+                </div>
+            </div>
             <div className="container" style={{marginTop: '50px'}}>
                 <p>O mnie: </p>
                 <p>
