@@ -9,6 +9,26 @@ export default function Reservation() {
             .catch(error => console.error("Błąd pobierania rezerwacji:", error));
     }, [])
 
+    const handleDelete = (id) => {
+        fetch(`http://localhost:3000/reservation/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Cache-Control': 'no-cache'
+            }
+        })
+            .then(response => {
+                if (response.ok) {
+                    setReservations(prevReservations => prevReservations.filter(reservation => reservation.id !== id));
+                } else {
+                    console.error("Błąd podczas usuwania rezerwacji");
+                }
+            })
+            .catch(error => console.log("Błąd podczas usuwania rezerwacji", error));
+    }
+
+
+
     return <>
         <div className="container mt-4">
             <h1 className="text-center mb-4">Twoje rezerwacje</h1>
@@ -26,7 +46,7 @@ export default function Reservation() {
                                         <strong>Umówiona Data:</strong> {res.date}<br/>
                                         <strong>Umówiona Godzina:</strong> {res.time}<br/>
                                         <strong>Korepetycje z:</strong> {res.reason}<br/>
-                                        <button className="btn btn-danger">Zrezygnuj z rezerwacji</button> <br/>
+                                        <button className="btn btn-danger" onClick={() => handleDelete(res.id)}>Zrezygnuj z rezerwacji</button> <br/>
                                     </p>
                                 </div>
                             </div>
