@@ -52,7 +52,7 @@ export default function Tutor() {
             <h1>{tutor.name}</h1>
 
             <div className="container d-flex align-items-center">
-                <img src={tutor.image} alt="Korepetytor" style={{height: '300px', width: '300px'}}/>
+                <img src={tutor.image} alt={tutor.name} style={{height: '300px', width: '300px'}}/>
                 <div className="container align-items-center" style={{paddingBottom: '10px'}}>
                     <label htmlFor="datePicker">Wybierz dzień na który chcesz się umówić:</label>
                     <input
@@ -61,7 +61,6 @@ export default function Tutor() {
                         value={selectedDate}
                         onChange={(e) => setSelectedDate(e.target.value)}
                         className="form-control w-25"
-                        style={{}}
                     />
                     <br/>
                     <label htmlFor="timePicker">Wybierz godzinę na którą chcesz się umówić:</label>
