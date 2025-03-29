@@ -11,6 +11,18 @@
       "name": "Adam Darczewski",
       "image": "adam.jpg",
       "description": "Mam na imię Adam. Jestem nauczycielem programowania i przedmiotów informatycznych. Realizuje\n również wszelkie usługi związane z tą dziedziną."
+    },
+    {
+      "id": "3",
+      "name": "Aleksanda Booleanska",
+      "image": "ola.jpg",
+      "description": "Nazywam się Ola i jestem nauczycielką języka polskiego."
+    },
+    {
+      "id": "4",
+      "name": "Wiktor Przedręba",
+      "image": "wiktor.jpg",
+      "description": "Hej! Mam na imię Wiktor i jestem nauczycielem informatyki."
     }
   ],
   "tutors": [
@@ -25,6 +37,18 @@
       "name": "Adam Darczewski",
       "image": "/adam.jpg",
       "description": "Mam na imię Adam. Jestem nauczycielem programowania i przedmiotów informatycznych. Realizuje\n również wszelkie usługi związane z tą dziedziną. Belfrem jest z powołania, informatykiem z pasji. Przy tablicy (lub raczej rzutniku) czuję się jak ryba w wodzie. Od lat używam sprzętu z logiem nadgryzionego jabłka. W wolnych chwilach kocham gotować i czytać książki. Miłośnik aktywnego spędzania czasu, szczególnie w górach."
+    },
+    {
+      "id": "3",
+      "name": "Aleksanda Booleanska",
+      "image": "/ola.jpg",
+      "description": "Cześć! Nazywam się Ola i jestem nauczycielką języka polskiego. Pomagam uczniom zrozumieć gramatykę, rozwijać umiejętności pisania i analizować literaturę. Prowadzę też korepetycje, przygotowuję do egzaminów i wspieram w pisaniu prac.\n\n\n\n\n\n\n\n\n"
+    },
+    {
+      "id": "4",
+      "name": "Wiktor Przedręba",
+      "image": "/wiktor.jpg",
+      "description": "Hej! Mam na imię Wiktor i jestem nauczycielem informatyki. Uczę programowania, algorytmów i technologii internetowych. Pomagam zrozumieć złożone zagadnienia, przygotowuję do egzaminów i wspieram w realizacji projektów.\n\n\n\n\n\n\n\n\n"
     }
   ],
   "reservation": [
