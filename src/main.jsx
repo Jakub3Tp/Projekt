@@ -22,8 +22,8 @@ createRoot(document.getElementById('root')).render(
                     <Route path="reserve" element={<Reserve />} />
                     <Route path="reservation" element={<Reservation />} />
                     <Route path="tutor/:id" element={<Tutor />} />
-                    <Route path="Login" element={<Login />} />
-                    <Route path="Registration" element={<Registration />} />
+                    <Route path="login" element={<Login />} />
+                    <Route path="registration" element={<Registration />} />
                 </Route>
             </Routes>
         </BrowserRouter>

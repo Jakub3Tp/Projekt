@@ -16,7 +16,7 @@ export default function Tutor() {
             .then(response => response.json())
             .then(data => setTutor(data))
             .catch(error => console.log("Błąd pobierania danych", error));
-    })
+    }, [id])
 
     const handleReservation = () => {
         if (!tutor) return;
