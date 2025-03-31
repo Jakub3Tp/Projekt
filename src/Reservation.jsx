@@ -27,8 +27,6 @@ export default function Reservation() {
             .catch(error => console.log("Błąd podczas usuwania rezerwacji", error));
     }
 
-
-
     return <>
         <div className="container mt-4">
             <h1 className="text-center mb-4">Twoje rezerwacje</h1>
