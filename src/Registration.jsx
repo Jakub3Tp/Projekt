@@ -29,22 +29,30 @@ export default function Register() {
     };
 
     return (
-        <div className="container">
+        <div className="container mt-5">
             <h2>Rejestracja</h2>
-            <form onSubmit={handleRegister}>
-                <input
-                    type="text"
-                    placeholder="Nazwa użytkownika"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-                <input
-                    type="password"
-                    placeholder="Hasło"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button type="submit">Zarejestruj</button>
+            <form onSubmit={handleRegister} className="w-50">
+                <div className="mb-3">
+                    <label htmlFor="username" className="form-label">Nazwa użytkownika</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="password" className="form-label">Hasło</label>
+                    <input
+                        type="password"
+                        className="form-control"
+                        id="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </div>
+                <button type="submit" className="btn btn-primary">Zarejestruj</button>
             </form>
         </div>
     );
