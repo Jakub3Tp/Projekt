@@ -51,14 +51,5 @@
       "description": "Hej! Mam na imię Wiktor i jestem nauczycielem informatyki. Uczę programowania, algorytmów i technologii internetowych. Pomagam zrozumieć złożone zagadnienia, przygotowuję do egzaminów i wspieram w realizacji projektów.\n\n\n\n\n\n\n\n\n"
     }
   ],
-  "reservation": [
-    {
-      "id": 1743168524767,
-      "tutor": "Adam Darczewski",
-      "date": "2025-03-31",
-      "time": "18:28",
-      "image": "adam.jpg",
-      "reason": "Podstawy Programowania"
-    }
-  ]
+  "reservation": []
 }

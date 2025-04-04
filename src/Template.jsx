@@ -33,6 +33,13 @@ export default function Template() {
                                 Twoje rezerwacje
                             </NavLink>
                         </li>
+                        <li className="nav-item">
+                            <NavLink
+                                to="AddTutor"
+                                className={({isActive}) => isActive ? "nav-link active fw-bold" : "nav-link"}>
+                                Dodaj Korepetytora
+                            </NavLink>
+                        </li>
                     </ul>
                 </div>
                 <div>
@@ -40,7 +47,7 @@ export default function Template() {
                         <li className="nav-item">
                             <NavLink to="login"
                                      className={({isActive}) => isActive ? "nav-link active fw-bold" : "nav-link"}>
-                                Logowanie
+                            Logowanie
                             </NavLink>
                         </li>
                         <li className="nav-item">

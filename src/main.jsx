@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import {StrictMode} from 'react'
 import { createRoot } from 'react-dom/client'
 import {BrowserRouter, Route, Routes} from "react-router";
 import "bootstrap/dist/css/bootstrap.css"
@@ -10,6 +10,7 @@ import Reservation from "./Reservation.jsx";
 import Tutor from "./Tutor.jsx";
 import Login from "./Login.jsx";
 import Registration from "./Registration.jsx";
+import AddTutor from "./AddTutor.jsx";
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
@@ -24,6 +25,7 @@ createRoot(document.getElementById('root')).render(
                     <Route path="tutor/:id" element={<Tutor />} />
                     <Route path="login" element={<Login />} />
                     <Route path="registration" element={<Registration />} />
+                    <Route path="addTutor" element={<AddTutor/>} />
                 </Route>
             </Routes>
         </BrowserRouter>

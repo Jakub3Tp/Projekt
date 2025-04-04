@@ -15,7 +15,7 @@ export default function Login() {
         if (user && user.password === password) {
             localStorage.setItem("loggedInUser", username);
             alert("Zalogowano pomyślnie!");
-            navigate("/");  // Przekierowanie na stronę główną
+            navigate("/");
         } else {
             alert("Nieprawidłowa nazwa użytkownika lub hasło.");
         }
