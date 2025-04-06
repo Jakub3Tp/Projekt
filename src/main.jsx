@@ -15,7 +15,6 @@ import AddTutor from "./AddTutor.jsx";
 createRoot(document.getElementById('root')).render(
     <StrictMode>
         <BrowserRouter>
-            {/*<App />*/}
             <Routes>
                 <Route element={<Template />}>
                     <Route index element={<Home />} />

@@ -2,56 +2,72 @@ import {useState} from "react";
 
 export default function AddTutor() {
     const [name, setName] = useState("");
-    const [cardDesc, setCardDesc] = useState("");
+    const [cdescription, setCdescription] = useState("");
     const [description, setDescription] = useState("");
     const [image, setImage] = useState(null);
+    const [imageUrl, setImageUrl] = useState("");
 
-    const handleImage = (e) => {
-        const file = e.target.files[0];
-        setImage(file);
+    const generateId = () => {
+        return Date.now().toString();
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        const newId = generateId();
+
         const formData = new FormData();
-        formData.append("image", image);
+        formData.append('image', image);
+        formData.append('name', name);
+        formData.append('cdescription', cdescription);
+        formData.append('description', description);
 
-
-        const newTutor = {
-            name,
-            description,
-            image: image ? URL.createObjectURL(image) : '',
-        };
-
-        const newCard = {
-            name,
-            cardDesc,
-            image: image ? URL.createObjectURL(image) : '',
-        }
         try {
-            await fetch("http://localhost:3000/tutorCard", {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(newCard),
+            const uploadRes = await fetch('http://localhost:5000/upload', {
+                method: 'POST',
+                body: formData
             });
 
-            await fetch("http://localhost:3000/tutors", {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(newTutor),
+            const data = await uploadRes.json();
+            const imageUrl = data.imageUrl;
+
+            fetch('http://localhost:3000/tutorCard', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    id: newId,
+                    name,
+                    image: imageUrl, // Zapisujemy URL obrazu
+                    cdescription,
+                })
             });
 
-            alert("Dodane Korepetytora.");
-            setName('');
-            setDescription('');
-            setCardDesc('')
-            setImage(null);
+            fetch('http://localhost:3000/tutors', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    id: newId,
+                    name,
+                    image: imageUrl,
+                    description,
+                })
+            });
 
-        } catch (error) {
-            console.error('Błąd dodawania korepetytora:', error)
+            alert('Korepetytor dodany!');
+        } catch (err) {
+            console.error(err);
+            alert('Błąd podczas dodawania.');
         }
     };
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setImage(file);
+            setImageUrl(URL.createObjectURL(file));
+        }
+    };
+
 
     return (
         <>
@@ -73,8 +89,8 @@ export default function AddTutor() {
                         <input
                             type="text"
                             className="form-control"
-                            value={cardDesc}
-                            onChange={(e) => setCardDesc(e.target.value)}
+                            value={cdescription}
+                            onChange={(e) => setCdescription(e.target.value)}
                             required
                         />
                     </div>
@@ -92,11 +108,11 @@ export default function AddTutor() {
                         <label className="form-label">Zdjęcie:</label>
                         <input
                             type="file"
-                            className="form-control"
-                            onChange={handleImage}
                             accept="image/*"
+                            onChange={handleImageChange}
                             required
                         />
+                        {imageUrl && <img src={imageUrl} alt="Tutor" style={{ width: 100, height: 100 }} />}
                     </div>
                     <div className="mt-3">
                         <button type="submit" className="btn btn-success">Dodaj</button>

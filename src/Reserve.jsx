@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router";
-//import tutorsCard from "./assets/tutorsCard.json";
 import {useEffect, useState} from "react";
 
 export default function Reserve() {
@@ -25,7 +24,7 @@ export default function Reserve() {
                     <div className="card-body">
                         <h5 className="card-title">{tutorc.name}</h5>
                         <p className="card-text">
-                            {tutorc.description}
+                            {tutorc.cdescription}
                         </p>
                         <button className="btn btn-primary" onClick={() => navigate(`/tutor/${tutorc.id}`)}>Szczegóły</button>
                     </div>

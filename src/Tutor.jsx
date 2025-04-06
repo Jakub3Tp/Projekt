@@ -1,7 +1,6 @@
 import {useNavigate, useParams} from "react-router";
 import { useEffect, useState } from "react";
 import RatingBox from "./RatingBox.jsx";
-//import tutorsData from "./assets/tutorsData.json";
 
 export default function Tutor() {
     const navigate = useNavigate();

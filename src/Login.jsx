@@ -13,7 +13,7 @@ export default function Login() {
         const user = users[username];
 
         if (user && user.password === password) {
-            localStorage.setItem("loggedInUser", username);
+            localStorage.setItem("user", JSON.stringify({ username }));
             alert("Zalogowano pomyślnie!");
             navigate("/");
         } else {

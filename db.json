@@ -4,25 +4,25 @@
       "id": "1",
       "name": "Przemysław Pilikowki",
       "image": "pjedlikowski.jpg",
-      "description": "Jestem absolwentem informatyki technicznej na Politechnice Wrocławskiej - ukończyłem ją w 2021 r."
+      "cdescription": "Jestem absolwentem informatyki technicznej na Politechnice Wrocławskiej - ukończyłem ją w 2021 r."
     },
     {
       "id": "2",
       "name": "Adam Darczewski",
       "image": "adam.jpg",
-      "description": "Mam na imię Adam. Jestem nauczycielem programowania i przedmiotów informatycznych. Realizuje\n również wszelkie usługi związane z tą dziedziną."
+      "cdescription": "Mam na imię Adam. Jestem nauczycielem programowania i przedmiotów informatycznych. Realizuje\n również wszelkie usługi związane z tą dziedziną."
     },
     {
       "id": "3",
       "name": "Aleksanda Booleanska",
       "image": "ola.jpg",
-      "description": "Nazywam się Ola i jestem nauczycielką języka polskiego."
+      "cdescription": "Nazywam się Ola i jestem nauczycielką języka polskiego."
     },
     {
       "id": "4",
       "name": "Wiktor Przedręba",
       "image": "wiktor.jpg",
-      "description": "Hej! Mam na imię Wiktor i jestem nauczycielem informatyki."
+      "cdescription": "Hej! Mam na imię Wiktor i jestem nauczycielem informatyki."
     }
   ],
   "tutors": [

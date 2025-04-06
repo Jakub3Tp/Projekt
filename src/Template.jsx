@@ -1,6 +1,23 @@
-import { Outlet, NavLink } from "react-router";
+import {Outlet, NavLink, useNavigate} from "react-router";
+import {useEffect, useState} from "react";
 
 export default function Template() {
+    const [username, setUsername] = useState(null);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const storedUser = localStorage.getItem("user");
+        if (storedUser) {
+            setUsername(JSON.parse(storedUser));
+        }
+    }, []);
+
+    const handleLogout = () => {
+        localStorage.removeItem("user");
+        setUsername(null);
+        navigate("/login");
+    };
+
     return <>
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
@@ -43,20 +60,31 @@ export default function Template() {
                     </ul>
                 </div>
                 <div>
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                            <NavLink to="login"
-                                     className={({isActive}) => isActive ? "nav-link active fw-bold" : "nav-link"}>
-                            Logowanie
-                            </NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink to="Registration"
-                                     className={({isActive}) => isActive ? "nav-link active fw-bold" : "nav-link"}>
-                                Rejestracja
-                            </NavLink>
-                        </li>
-                    </ul>
+                    {username ? (
+                        <ul className="navbar-nav">
+                            <li className="nav-item nav-link">
+                                Witaj, <strong>{username.username}</strong>
+                            </li>
+                            <li className="nav-item">
+                                <button className="btn btn-outline-danger ms-2" onClick={handleLogout}>
+                                    Wyloguj
+                                </button>
+                            </li>
+                        </ul>
+                    ) : (
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <NavLink to="login" className={({isActive}) => isActive ? "nav-link active fw-bold" : "nav-link"}>
+                                    Logowanie
+                                </NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink to="Registration" className={({isActive}) => isActive ? "nav-link active fw-bold" : "nav-link"}>
+                                    Rejestracja
+                                </NavLink>
+                            </li>
+                        </ul>
+                    )}
                 </div>
             </div>
         </nav>
