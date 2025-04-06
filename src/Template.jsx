@@ -1,9 +1,12 @@
 import {Outlet, NavLink, useNavigate} from "react-router";
 import {useEffect, useState} from "react";
+import { useContext } from "react";
+import { UserContext } from "./UserContex";
 
 export default function Template() {
     const [username, setUsername] = useState(null);
     const navigate = useNavigate();
+    const { user, setUser } = useContext(UserContext);
 
     useEffect(() => {
         const storedUser = localStorage.getItem("user");
@@ -14,8 +17,8 @@ export default function Template() {
 
     const handleLogout = () => {
         localStorage.removeItem("user");
-        setUsername(null);
-        navigate("/login");
+        setUser(null);
+        navigate("/");
     };
 
     return <>
@@ -50,17 +53,19 @@ export default function Template() {
                                 Twoje rezerwacje
                             </NavLink>
                         </li>
-                        <li className="nav-item">
-                            <NavLink
-                                to="AddTutor"
-                                className={({isActive}) => isActive ? "nav-link active fw-bold" : "nav-link"}>
-                                Dodaj Korepetytora
-                            </NavLink>
-                        </li>
+                        {user && (
+                            <li className="nav-item">
+                                <NavLink
+                                    to="AddTutor"
+                                    className={({ isActive }) => isActive ? "nav-link active fw-bold" : "nav-link"}>
+                                    Dodaj Korepetytora
+                                </NavLink>
+                            </li>
+                        )}
                     </ul>
                 </div>
                 <div>
-                    {username ? (
+                    {user ? (
                         <ul className="navbar-nav">
                             <li className="nav-item nav-link">
                                 Witaj, <strong>{username.username}</strong>

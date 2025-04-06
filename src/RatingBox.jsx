@@ -1,13 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function RatingBox() {
+export default function RatingBox({ tutorId }) {
     const [ratings, setRatings] = useState([]);
     const [currentRating, setCurrentRating] = useState("");
 
+    useEffect(() => {
+        const storedRatings = JSON.parse(localStorage.getItem("ratings")) || {};
+        if (storedRatings[tutorId]) {
+            setRatings(storedRatings[tutorId]);
+        }
+    }, [tutorId]);
+
     const addRating = () => {
         if (currentRating.trim() === "") return;
-        setRatings([...ratings, currentRating]);
+
+        const updatedRatings = [...ratings, currentRating];
+        setRatings(updatedRatings);
         setCurrentRating("");
+
+        const storedRatings = JSON.parse(localStorage.getItem("ratings")) || {};
+        storedRatings[tutorId] = updatedRatings;
+        localStorage.setItem("ratings", JSON.stringify(storedRatings));
     };
 
     return (

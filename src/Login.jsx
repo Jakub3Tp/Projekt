@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { useContext } from "react";
+import { UserContext } from "./UserContex";
 
 export default function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+    const { setUser } = useContext(UserContext);
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -15,6 +18,7 @@ export default function Login() {
         if (user && user.password === password) {
             localStorage.setItem("user", JSON.stringify({ username }));
             alert("Zalogowano pomyślnie!");
+            setUser({ user });
             navigate("/");
         } else {
             alert("Nieprawidłowa nazwa użytkownika lub hasło.");

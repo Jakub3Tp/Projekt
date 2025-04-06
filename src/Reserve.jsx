@@ -16,10 +16,10 @@ export default function Reserve() {
         <div className="container d-flex justify-content-center text-center">
             <h1>Zarezerwuj Spotkanie</h1>
         </div>
-        <div className="container" key={tutorc.id}>
+        <div className="container " key={tutorc.id}>
             <div className="row">
                 {tutorc.map(tutorc => (
-                <div className="card" style={{width: "18rem"}}>
+                <div className="card m-3" style={{width: "18rem", alignItems: "justify"}}>
                     <img src={tutorc.image} className="card-img-top" alt={tutorc.name}/>
                     <div className="card-body">
                         <h5 className="card-title">{tutorc.name}</h5>

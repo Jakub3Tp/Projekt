@@ -10,6 +10,7 @@ export default function Tutor() {
     const [selectedDate, setSelectedDate] = useState("");
     const [reason, setReason] = useState("");
 
+
     useEffect(() => {
         fetch(`http://localhost:3000/tutors/${id}`)
             .then(response => response.json())
@@ -47,7 +48,7 @@ export default function Tutor() {
 
     return <>
         <div className="container">
-            <RatingBox/>
+            <RatingBox tutorId={tutor.id}/>
             <h1>{tutor.name}</h1>
 
             <div className="container d-flex align-items-center">
