@@ -1,1 +1,9 @@
-# :)
+#  db.json
+"accounts": [
+    {
+      "username": "example",
+      "password": "example"
+    }
+  ],
+
+#  Registration
