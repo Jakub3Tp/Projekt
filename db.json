@@ -51,5 +51,22 @@
       "description": "Hej! Mam na imię Wiktor i jestem nauczycielem informatyki. Uczę programowania, algorytmów i technologii internetowych. Pomagam zrozumieć złożone zagadnienia, przygotowuję do egzaminów i wspieram w realizacji projektów.\n\n\n\n\n\n\n\n\n"
     }
   ],
-  "reservation": []
+  "reservation": [],
+  "users": [
+    {
+      "username": "test",
+      "password": "teb",
+      "id": 1
+    },
+    {
+      "username": "Jakub",
+      "password": "teb",
+      "id": 2
+    },
+    {
+      "username": "test2",
+      "password": "teb",
+      "id": 3
+    }
+  ]
 }

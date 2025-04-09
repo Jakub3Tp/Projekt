@@ -4,28 +4,39 @@ import { useNavigate } from "react-router";
 export default function Register() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const navigate = useNavigate();
 
-    const handleRegister = (e) => {
+    const handleRegister = async (e) => {
         e.preventDefault();
 
-        if (!username || !password) {
+        if (!username || !password || !confirmPassword) {
             alert("Wszystkie pola są wymagane!");
             return;
         }
 
-        const users = JSON.parse(localStorage.getItem("users")) || {};
-
-        if (users[username]) {
-            alert("Użytkownik o tej nazwie już istnieje!");
+        if (password !== confirmPassword) {
+            alert("Hasła się nie zgadzają!");
             return;
         }
 
-        users[username] = { password };
-        localStorage.setItem("users", JSON.stringify(users));
+        const res = await fetch(`http://localhost:3000/users?username=${username}`);
+        const existing = await res.json();
+
+        if (existing.length > 0) {
+            alert("Użytkownik już istnieje!");
+            return;
+        }
+
+        await fetch("http://localhost:3000/users", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password })
+        });
 
         alert("Rejestracja zakończona sukcesem! Możesz się teraz zalogować.");
         navigate("/login");
+        window.location.reload();
     };
 
     return (
@@ -38,6 +49,7 @@ export default function Register() {
                         type="text"
                         className="form-control"
                         id="username"
+                        placeholder="Wpisz nazwe użytkownika"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                     />
@@ -48,8 +60,18 @@ export default function Register() {
                         type="password"
                         className="form-control"
                         id="password"
+                        placeholder="Wpisz hasło"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                    />
+                </div>
+                <div className="mb-3">
+                    <input
+                        type="password"
+                        className="form-control"
+                        placeholder="Powtórz hasło"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
                     />
                 </div>
                 <button type="submit" className="btn btn-primary">Zarejestruj</button>

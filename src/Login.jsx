@@ -1,25 +1,22 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { useContext } from "react";
-import { UserContext } from "./UserContex";
 
 export default function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-    const { setUser } = useContext(UserContext);
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
 
-        const users = JSON.parse(localStorage.getItem("users")) || {};
-        const user = users[username];
+        const res = await fetch(`http://localhost:3000/users?username=${username}`);
+        const users = await res.json();
 
-        if (user && user.password === password) {
-            localStorage.setItem("user", JSON.stringify({ username }));
+        if (users.length > 0 && users[0].password === password) {
+            localStorage.setItem("loggedInUser", JSON.stringify(users[0]));
             alert("Zalogowano pomyślnie!");
-            setUser({ user });
-            navigate("/");
+            navigate("/home");
+            window.location.reload();
         } else {
             alert("Nieprawidłowa nazwa użytkownika lub hasło.");
         }

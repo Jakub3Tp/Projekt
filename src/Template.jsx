@@ -1,25 +1,24 @@
 import {Outlet, NavLink, useNavigate} from "react-router";
 import {useEffect, useState} from "react";
-import { useContext } from "react";
-import { UserContext } from "./UserContex";
 
 export default function Template() {
-    const [username, setUsername] = useState(null);
     const navigate = useNavigate();
-    const { user, setUser } = useContext(UserContext);
+    const [user, setUser] = useState(null);
 
     useEffect(() => {
-        const storedUser = localStorage.getItem("user");
-        if (storedUser) {
-            setUsername(JSON.parse(storedUser));
+        const stored = localStorage.getItem("loggedInUser");
+        try {
+            if (stored) {
+                const parsed = JSON.parse(stored);
+                if (parsed?.username) {
+                    setUser(parsed);
+                }
+            }
+        } catch (error) {
+            console.error("Błąd parsowania użytkownika:", error);
         }
     }, []);
 
-    const handleLogout = () => {
-        localStorage.removeItem("user");
-        setUser(null);
-        navigate("/");
-    };
 
     return <>
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -68,10 +67,14 @@ export default function Template() {
                     {user ? (
                         <ul className="navbar-nav">
                             <li className="nav-item nav-link">
-                                Witaj, <strong>{username.username}</strong>
+                                {user && <strong>Witaj, {user.username}</strong>}
                             </li>
                             <li className="nav-item">
-                                <button className="btn btn-outline-danger ms-2" onClick={handleLogout}>
+                                <button className="btn btn-outline-danger ms-2" onClick={() =>{
+                                    localStorage.removeItem("loggedInUser");
+                                    setUser(null);
+                                    navigate("/login");
+                                }}>
                                     Wyloguj
                                 </button>
                             </li>
