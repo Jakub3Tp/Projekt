@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import bcrypt from "bcryptjs";
 
 export default function Register() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const hashedPassword = bcrypt.hash(password, 12);
     const navigate = useNavigate();
 
     const handleRegister = async (e) => {
@@ -31,7 +33,7 @@ export default function Register() {
         await fetch("http://localhost:3000/users", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ username, password })
+            body: JSON.stringify({ username, password: hashedPassword })
         });
 
         alert("Rejestracja zakończona sukcesem! Możesz się teraz zalogować.");

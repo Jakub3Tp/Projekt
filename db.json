@@ -51,7 +51,16 @@
       "description": "Hej! Mam na imię Wiktor i jestem nauczycielem informatyki. Uczę programowania, algorytmów i technologii internetowych. Pomagam zrozumieć złożone zagadnienia, przygotowuję do egzaminów i wspieram w realizacji projektów.\n\n\n\n\n\n\n\n\n"
     }
   ],
-  "reservation": [],
+  "reservation": [
+    {
+      "id": 1744375539462,
+      "tutor": "Przemysław Pilikowki",
+      "date": "2025-04-12",
+      "time": "16:48",
+      "image": "/pjedlikowski.jpg",
+      "reason": "Matematyka"
+    }
+  ],
   "users": [
     {
       "username": "test",
@@ -67,6 +76,16 @@
       "username": "test2",
       "password": "teb",
       "id": 3
+    },
+    {
+      "username": "Przemek",
+      "password": "teb",
+      "id": 4
+    },
+    {
+      "username": "test3",
+      "password": {},
+      "id": 5
     }
   ]
 }

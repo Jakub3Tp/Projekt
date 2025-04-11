@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import bcrypt from "bcryptjs";
 
 export default function Login() {
     const [username, setUsername] = useState("");
@@ -11,8 +12,9 @@ export default function Login() {
 
         const res = await fetch(`http://localhost:3000/users?username=${username}`);
         const users = await res.json();
+        const isPasswordValid =  bcrypt.compare(password, users[0].password);
 
-        if (users.length > 0 && users[0].password === password) {
+        if (users.length > 0 && users[0].password === password && isPasswordValid) {
             localStorage.setItem("loggedInUser", JSON.stringify(users[0]));
             alert("Zalogowano pomyślnie!");
             navigate("/home");
@@ -20,6 +22,7 @@ export default function Login() {
         } else {
             alert("Nieprawidłowa nazwa użytkownika lub hasło.");
         }
+
     };
 
     return (
