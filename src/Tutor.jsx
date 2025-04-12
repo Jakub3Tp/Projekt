@@ -8,6 +8,7 @@ export default function Tutor() {
     const [tutor, setTutor] = useState(null);
     const [selectedTime, setSelectedTime] = useState("");
     const [selectedDate, setSelectedDate] = useState("");
+    const currentUser = JSON.parse(localStorage.getItem("loggedInUser"));
     const [reason, setReason] = useState("");
 
 
@@ -18,8 +19,26 @@ export default function Tutor() {
             .catch(error => console.log("Błąd pobierania danych", error));
     }, [id])
 
-    const handleReservation = () => {
+    const handleReservation = async () => {
         if (!tutor) return;
+
+        if (!selectedDate || !selectedTime || !reason) {
+            alert("Wybierz datę, godzinę lub powód!");
+            return;
+        }
+
+        const res = await fetch(`http://localhost:3000/reservation?tutor=${encodeURIComponent(tutor.name)}`);
+        const currentUser = JSON.parse(localStorage.getItem("loggedInUser"));
+        const reservation = await res.json();
+
+        const alreadyReserved = reservation.find(r =>
+            r.date === selectedDate
+        );
+
+        if (alreadyReserved) {
+            alert("Ten korepetytor jest już zajęty w tym terminie!");
+            return;
+        }
 
         const newReservation = {
             id: Date.now(),
@@ -27,12 +46,13 @@ export default function Tutor() {
             date: selectedDate,
             time: selectedTime,
             image: tutor.image,
-            reason: reason
+            reason: reason,
+            user: currentUser?.username
         };
 
         fetch("http://localhost:3000/reservation", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {"Content-Type": "application/json"},
             body: JSON.stringify(newReservation),
         })
             .then(() => {
@@ -80,9 +100,13 @@ export default function Tutor() {
                         className="form-control w-25"
                     />
                     <br/>
-                    <button type="button" className="btn btn-primary" style={{marginLeft: "50px"}}
-                            onClick={handleReservation}>Zarezerwój korepetycje
-                    </button>
+                    {currentUser ? (
+                        <button onClick={handleReservation} className="btn btn-primary">
+                            Zarezerwuj korepetycje
+                        </button>
+                    ) : (
+                        <p className="text-muted">Zaloguj się, aby zarezerwować</p>
+                    )}
                 </div>
             </div>
             <div className="container" style={{marginTop: '50px'}}>

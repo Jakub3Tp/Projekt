@@ -1,13 +1,20 @@
 import { useState, useEffect } from "react";
 export default function Reservation() {
     const [reservations, setReservations] = useState([]);
+    const currentUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
     useEffect(() => {
         fetch("http://localhost:3000/reservation")
-            .then(response => response.json())
-            .then(data => setReservations(data))
-            .catch(error => console.error("Błąd pobierania rezerwacji:", error));
-    }, [])
+            .then(res => res.json())
+            .then(data => {
+                if (currentUser) {
+                    const userReservations = data.filter(r => r.user === currentUser.username);
+                    setReservations(userReservations);
+                } else {
+                    setReservations([]);
+                }
+            });
+    }, []);
 
     const handleDelete = (id) => {
         fetch(`http://localhost:3000/reservation/${id}`, {

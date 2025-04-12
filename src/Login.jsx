@@ -14,7 +14,8 @@ export default function Login() {
         const users = await res.json();
         const isPasswordValid =  bcrypt.compare(password, users[0].password);
 
-        if (users.length > 0 && users[0].password === password && isPasswordValid) {
+        if (users.length > 0)
+            if (isPasswordValid) {
             localStorage.setItem("loggedInUser", JSON.stringify(users[0]));
             alert("Zalogowano pomyślnie!");
             navigate("/home");

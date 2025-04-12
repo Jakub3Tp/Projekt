@@ -6,12 +6,12 @@ export default function Register() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const hashedPassword = bcrypt.hash(password, 12);
     const navigate = useNavigate();
 
     const handleRegister = async (e) => {
         e.preventDefault();
 
+        const hashedPassword = await bcrypt.hash(password, 12);
         if (!username || !password || !confirmPassword) {
             alert("Wszystkie pola są wymagane!");
             return;
