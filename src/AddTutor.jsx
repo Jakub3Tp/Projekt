@@ -1,4 +1,5 @@
 import {useState} from "react";
+import { motion } from "framer-motion";
 
 export default function AddTutor() {
     const [name, setName] = useState("");
@@ -71,7 +72,12 @@ export default function AddTutor() {
 
     return (
         <>
-            <div className="container mt-5">
+            <motion.div
+                className="container mt-5"
+                initial={{opacity: 0, y: 20}}
+                animate={{opacity: 1, y: 0}}
+                transition={{duration: 1}}
+            >
                 <h2>Dodaj Korepetytora</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mt-3">
@@ -112,13 +118,13 @@ export default function AddTutor() {
                             onChange={handleImageChange}
                             required
                         />
-                        {imageUrl && <img src={imageUrl} alt="Tutor" style={{ width: 100, height: 100 }} />}
+                        {imageUrl && <img src={imageUrl} alt="Tutor" style={{width: 100, height: 100}}/>}
                     </div>
                     <div className="mt-3">
                         <button type="submit" className="btn btn-success">Dodaj</button>
                     </div>
                 </form>
-            </div>
+            </motion.div>
         </>
     )
 }
