@@ -121,7 +121,13 @@ export default function AddTutor() {
                         {imageUrl && <img src={imageUrl} alt="Tutor" style={{width: 100, height: 100}}/>}
                     </div>
                     <div className="mt-3">
-                        <button type="submit" className="btn btn-success">Dodaj</button>
+                        <motion.button
+                            whileHover={{ scale: 1.1 }}
+                            type="submit"
+                            className="btn btn-success"
+                        >
+                            Dodaj
+                        </motion.button>
                     </div>
                 </form>
             </motion.div>

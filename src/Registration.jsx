@@ -82,7 +82,13 @@ export default function Register() {
                         onChange={(e) => setConfirmPassword(e.target.value)}
                     />
                 </div>
-                <button type="submit" className="btn btn-primary">Zarejestruj</button>
+                <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    type="submit"
+                    className="btn btn-primary"
+                >
+                    Zarejestruj
+                </motion.button>
             </form>
         </motion.div>
     );

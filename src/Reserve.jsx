@@ -34,9 +34,13 @@ export default function Reserve() {
                             <p className="card-text">
                                 {tutorc.cdescription}
                             </p>
-                            <button className="btn btn-primary"
-                                    onClick={() => navigate(`/tutor/${tutorc.id}`)}>Szczegóły
-                            </button>
+                            <motion.button
+                                whileHover={{scale: 1.1}}
+                                onClick={() => navigate(`/tutor/${tutorc.id}`)}
+                                className="btn btn-primary"
+                            >
+                                Szczegóły
+                            </motion.button>
                         </div>
                     </motion.div>
                 ))}

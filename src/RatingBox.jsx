@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export default function RatingBox({ tutorId }) {
     const [ratings, setRatings] = useState([]);
@@ -42,9 +43,13 @@ export default function RatingBox({ tutorId }) {
                 className="form-control mb-2"
                 placeholder="Wpisz ocenę..."
             />
-            <button className="btn btn-primary w-100" onClick={addRating}>
+            <motion.button
+                whileHover={{ scale: 1.1 }}
+                className="btn btn-primary w-100"
+                onClick={addRating}
+            >
                 Dodaj
-            </button>
+            </motion.button>
             <hr />
             <h6>Wystawione oceny:</h6>
             <ul className="list-group">

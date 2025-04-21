@@ -68,13 +68,14 @@ export default function Tutor() {
     }
 
     return <>
+        <RatingBox tutorId={tutor.id}/>
         <motion.div
             className="container"
             initial={{opacity: 0, y: 20}}
             animate={{opacity: 1, y: 0}}
             transition={{duration: 2}}
         >
-            <RatingBox tutorId={tutor.id}/>
+
             <h1>{tutor.name}</h1>
 
             <div className="container d-flex align-items-center">
@@ -107,9 +108,12 @@ export default function Tutor() {
                     />
                     <br/>
                     {currentUser ? (
-                        <button onClick={handleReservation} className="btn btn-primary">
+                        <motion.button
+                            whileHover={{ scale: 1.1 }}
+                            onClick={handleReservation}
+                            className="btn btn-primary">
                             Zarezerwuj korepetycje
-                        </button>
+                        </motion.button>
                     ) : (
                         <p className="text-muted">Zaloguj się, aby zarezerwować</p>
                     )}
@@ -121,9 +125,15 @@ export default function Tutor() {
                     {tutor.description}
                 </p>
             </div>
-            <button type="button" className="btn btn-danger" style={{marginTop: '50px'}}
-                    onClick={() => navigate(`/reserve`)}>Powrót
-            </button>
+            <motion.button
+                whileHover={{ scale: 1.1 }}
+                type="button"
+                className="btn btn-danger"
+                style={{marginTop: '50px'}}
+                onClick={() => navigate(`/reserve`)}
+            >
+                Powrót
+            </motion.button>
         </motion.div>
     </>
 }

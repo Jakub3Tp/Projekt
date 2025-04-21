@@ -56,7 +56,13 @@ export default function Login() {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
-                <button type="submit" className="btn btn-primary">Zaloguj</button>
+                <motion.button
+                    whileHover={{scale: 1.1}}
+                    type="submit"
+                    className="btn btn-primary"
+                >
+                    Zaloguj
+                </motion.button>
             </form>
         </motion.div>
     );

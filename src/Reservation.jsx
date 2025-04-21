@@ -61,9 +61,13 @@ export default function Reservation() {
                                         <strong>Umówiona Data:</strong> {res.date}<br/>
                                         <strong>Umówiona Godzina:</strong> {res.time}<br/>
                                         <strong>Korepetycje z:</strong> {res.reason}<br/>
-                                        <button className="btn btn-danger"
-                                                onClick={() => handleDelete(res.id)}>Zrezygnuj z rezerwacji
-                                        </button>
+                                        <motion.button
+                                            whileHover={{ scale: 1.1 }}
+                                            className="btn btn-danger"
+                                            onClick={() => handleDelete(res.id)}
+                                        >
+                                            Zrezygnuj z rezerwacji
+                                        </motion.button>
                                         <br/>
                                     </p>
                                 </div>
