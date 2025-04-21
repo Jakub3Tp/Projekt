@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { motion } from "framer-motion";
 import bcrypt from "bcryptjs";
 
 export default function Register() {
@@ -42,7 +43,12 @@ export default function Register() {
     };
 
     return (
-        <div className="container mt-5">
+        <motion.div
+            className="container mt-5"
+             initial={{ opacity: 0, y: 20 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ duration: 1 }}
+        >
             <h2>Rejestracja</h2>
             <form onSubmit={handleRegister} className="w-50">
                 <div className="mb-3">
@@ -78,6 +84,6 @@ export default function Register() {
                 </div>
                 <button type="submit" className="btn btn-primary">Zarejestruj</button>
             </form>
-        </div>
+        </motion.div>
     );
 }

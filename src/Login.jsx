@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { motion } from "framer-motion";
 import bcrypt from "bcryptjs";
 
 export default function Login() {
@@ -27,7 +28,12 @@ export default function Login() {
     };
 
     return (
-        <div className="container mt-5">
+        <motion.div
+            className="container mt-5"
+            initial={{opacity: 0, y: 20}}
+            animate={{opacity: 1, y: 0}}
+            transition={{duration: 1}}
+        >
             <h2>Logowanie</h2>
             <form onSubmit={handleLogin} className="w-50">
                 <div className="mb-3">
@@ -52,6 +58,6 @@ export default function Login() {
                 </div>
                 <button type="submit" className="btn btn-primary">Zaloguj</button>
             </form>
-        </div>
+        </motion.div>
     );
 }

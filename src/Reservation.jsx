@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
 export default function Reservation() {
     const [reservations, setReservations] = useState([]);
     const currentUser = JSON.parse(localStorage.getItem("loggedInUser"));
@@ -38,11 +40,19 @@ export default function Reservation() {
         <div className="container mt-4">
             <h1 className="text-center mb-4">Twoje rezerwacje</h1>
             <div className="row">
+                <AnimatePresence>
                 {reservations.length === 0 ? (
                     <p className="text-center">Brak rezerwacji</p>
                 ) : (
                     reservations.map(res => (
-                        <div key={res.id} className="col-md-4">
+                        <motion.div
+                            key={res.id}
+                            className="col-md-4"
+                            initial={{opacity: 0, y: 20}}
+                            animate={{opacity: 1, y: 0}}
+                            exit={{opacity: 0, y: -20}}
+                            transition={{duration: 1}}
+                        >
                             <div className="card mb-2">
                                 <img src={res.image} className="card-img-top" alt={res.tutor}/>
                                 <div className="card-body text-center">
@@ -51,13 +61,17 @@ export default function Reservation() {
                                         <strong>Umówiona Data:</strong> {res.date}<br/>
                                         <strong>Umówiona Godzina:</strong> {res.time}<br/>
                                         <strong>Korepetycje z:</strong> {res.reason}<br/>
-                                        <button className="btn btn-danger" onClick={() => handleDelete(res.id)}>Zrezygnuj z rezerwacji</button> <br/>
+                                        <button className="btn btn-danger"
+                                                onClick={() => handleDelete(res.id)}>Zrezygnuj z rezerwacji
+                                        </button>
+                                        <br/>
                                     </p>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     ))
                 )}
+                </AnimatePresence>
             </div>
         </div>
     </>

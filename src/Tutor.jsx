@@ -1,6 +1,7 @@
 import {useNavigate, useParams} from "react-router";
 import { useEffect, useState } from "react";
 import RatingBox from "./RatingBox.jsx";
+import { motion } from "framer-motion";
 
 export default function Tutor() {
     const navigate = useNavigate();
@@ -67,7 +68,12 @@ export default function Tutor() {
     }
 
     return <>
-        <div className="container">
+        <motion.div
+            className="container"
+            initial={{opacity: 0, y: 20}}
+            animate={{opacity: 1, y: 0}}
+            transition={{duration: 2}}
+        >
             <RatingBox tutorId={tutor.id}/>
             <h1>{tutor.name}</h1>
 
@@ -118,6 +124,6 @@ export default function Tutor() {
             <button type="button" className="btn btn-danger" style={{marginTop: '50px'}}
                     onClick={() => navigate(`/reserve`)}>Powrót
             </button>
-        </div>
+        </motion.div>
     </>
 }

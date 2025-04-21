@@ -69,15 +69,6 @@
       "image": "/pjedlikowski.jpg",
       "reason": "Matematyka",
       "user": "test"
-    },
-    {
-      "id": 1744475522840,
-      "tutor": "Wiktor Przedręba",
-      "date": "2025-04-13",
-      "time": "18:32",
-      "image": "/wiktor.jpg",
-      "reason": "Informatyka",
-      "user": "test"
     }
   ],
   "users": [
