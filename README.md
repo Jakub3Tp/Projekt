@@ -52,7 +52,6 @@ Aplikacja webowa służąca do rezerwowania korepetycji z wybranymi nauczycielam
 
 ```
 src/
-┃
 ├── Login.jsx
 ├── Register.jsx
 ├── TutorCard.jsx
