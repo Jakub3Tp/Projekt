@@ -8,7 +8,7 @@ Aplikacja webowa służąca do rezerwowania korepetycji z wybranymi nauczycielam
 - [Instalacja](#instalacja)
 - [Struktura aplikacji](#struktura-aplikacji)
 - [Widoki](#widoki)
-- [Autor](#autorzy)
+- [Autorzy](#autorzy)
 
 ## Technologie
 
@@ -63,8 +63,7 @@ src/
 ├── MyReservations.jsx
 ├── App.jsx
 ├── main.jsx
-└── assets/
-    └── styles.css
+
 ```
 
 ## Widoki
