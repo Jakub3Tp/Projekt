@@ -8,7 +8,7 @@ Aplikacja webowa służąca do rezerwowania korepetycji z wybranymi nauczycielam
 - [Instalacja](#instalacja)
 - [Struktura aplikacji](#struktura-aplikacji)
 - [Widoki](#widoki)
-- [Autor](#autor)
+- [Autor](#autorzy)
 
 ## Technologie
 
