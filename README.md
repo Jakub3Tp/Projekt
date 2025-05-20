@@ -14,8 +14,8 @@ Aplikacja webowa służąca do rezerwowania korepetycji z wybranymi nauczycielam
 
 - **React** (z użyciem Vite)
 - **JavaScript / JSX**
-- **CSS / Bootstrap / Tailwind (opcjonalnie)**
-- **LocalStorage** (lub backend API, jeśli zaimplementowany)
+- **CSS / Bootstrap **
+- **LocalStorage**
 - **React Router DOM**
 
 ## Funkcje
@@ -38,14 +38,20 @@ Aplikacja webowa służąca do rezerwowania korepetycji z wybranymi nauczycielam
 2. Zainstaluj zależności:
    ```bash
    npm install
+   npm install multer
+   npm install framer-motion
    ```
-
-3. Uruchom aplikację lokalnie:
+3. Uruchom bazy danych:
+   ```bash
+   npx json-server --watch db.json --port3000
+   node server.js
+   ```
+   
+4. Uruchom aplikację lokalnie:
    ```bash
    npm run dev
    ```
-
-4. Aplikacja będzie dostępna pod adresem:  
+5. Aplikacja będzie dostępna pod adresem:  
    `http://localhost:5173`
 
 ## Struktura aplikacji
