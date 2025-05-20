@@ -31,7 +31,7 @@ Aplikacja webowa służąca do rezerwowania korepetycji z wybranymi nauczycielam
 
 1. Sklonuj repozytorium:
    ```bash
-   git clone https://github.com/twoj-login/znanykorepetytor.git
+   git clone https://github.com/Jakub3Tp/Projekt.git
    cd znanykorepetytor
    ```
 
