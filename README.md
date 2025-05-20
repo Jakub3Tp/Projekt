@@ -52,17 +52,16 @@ Aplikacja webowa służąca do rezerwowania korepetycji z wybranymi nauczycielam
 
 ```
 src/
-├─
-│ ├── Login.jsx
-│ ├── Register.jsx
-│ ├── TutorCard.jsx
-│ ├── TutorProfile.jsx
-│ ├── AddTutor.jsx
-│  ── ReservationForm.jsx
-
-│  ├── Home.jsx
-│  ├── Reservations.jsx
-│  ├── MyReservations.jsx
+┃
+├── Login.jsx
+├── Register.jsx
+├── TutorCard.jsx
+├── TutorProfile.jsx
+├── AddTutor.jsx
+├── ReservationForm.jsx
+├── Home.jsx
+├── Reservations.jsx
+├── MyReservations.jsx
 ├── App.jsx
 ├── main.jsx
 └── assets/
@@ -81,7 +80,7 @@ src/
 - Hasło
 - Przycisk „Zaloguj”
 
-### 3. Strona główna
+### 3. Rezerwacje
 - Lista dostępnych korepetytorów z podglądem karty
 
 ### 4. Profil korepetytora (`/tutor/:id`)
@@ -98,7 +97,7 @@ src/
 - Dodanie zdjęcia
 - Przycisk „Dodaj korepetytora”
 
-## Autor
+## Autorzy
 
 Projekt stworzony w celach edukacyjnych.  
 Autor interfejsu testowego: Jakub Gola, Luiza Świeżek, Dymitry Latushkow
